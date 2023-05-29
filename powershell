@@ -1,12 +1,14 @@
 #powershell
 
 # Scanning for Open Ports
+$target = "192.168.0.1"   # Replace with the target IP address
+
 function Scan-OpenPorts {
     param (
         [Parameter(Mandatory = $true)]
-        [string]$TargetIP,
+        [string]$Target196.168.0.1,
         [Parameter(Mandatory = $true)]
-        [string]$PortRange
+        [string]$port 1-1000
     )
 
    
@@ -16,7 +18,7 @@ function Scan-OpenPorts {
 function Enumerate-Services {
     param (
         [Parameter(Mandatory = $true)]
-        [string]$TargetIP
+        [string]$Target 192.168.0.1
     )
 }
 
@@ -24,7 +26,7 @@ function Enumerate-Services {
 function BruteForce-Passwords {
     param (
         [Parameter(Mandatory = $true)]
-        [string]$TargetIP,
+        [string]$Targe t196.168.0.1,
         [Parameter(Mandatory = $true)]
         [string]$Protocol,
         [Parameter(Mandatory = $true)]
@@ -36,19 +38,19 @@ function BruteForce-Passwords {
 $task = $args[0]
 
 if ($task -eq "scan") {
-    $targetIP = $args[2]
-    $portRange = $args[4]
-    Scan-OpenPorts -TargetIP $targetIP -PortRange $portRange
+    $target 196.168.0.1  = $args[2]
+    $port 1-1000 = $args[4]
+    Scan-OpenPorts -Target 196.168.0.1 $target 196.168.0.1 -PortRange $port 1-1000
 }
 elseif ($task -eq "enumerate") {
-    $targetIP = $args[2]
-    Enumerate-Services -TargetIP $targetIP
+    $target196.168.0.1 = $args[2]
+    Enumerate-Services -Target 196.168.0.1 $target 196.168.0.1
 }
 elseif ($task -eq "brute-force") {
-    $targetIP = $args[2]
+    $target 196.168.0.1 = $args[2]
     $protocol = $args[4]
     $wordlistFile = $args[6]
-    BruteForce-Passwords -TargetIP $targetIP -Protocol $protocol -WordlistFile $wordlistFile
+    BruteForce-Passwords -Target 196.168.0.1 $target 192.168.0.1 -Protocol $protocol -WordlistFile $wordlistFile
 }
 else {
     Write-Host "Invalid task specified. Please use 'scan', 'enumerate', or 'brute-force'."
